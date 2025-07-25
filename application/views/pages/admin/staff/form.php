@@ -34,7 +34,7 @@
 			id="bio"
 			name="bio"
 			class="form-control"
-			rows="5"><?= $is_update_form ? $staff->position : "" ?></textarea>
+			rows="5"><?= $is_update_form ? $staff->bio : "" ?></textarea>
 	</div>
 
 	<div class="d-flex flex-row-reverse gap-2">
