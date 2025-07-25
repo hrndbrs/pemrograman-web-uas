@@ -50,8 +50,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'view/home';
+
 $route["admin/services/add"]["GET"] = "admin/services/show_add_form";
 $route["admin/services/(:num)"]["GET"] = "admin/services/show_edit_form/$1";
+
+$route["admin/portfolios/add"]["GET"] = "admin/portfolios/show_add_form";
+$route["admin/portfolios/(:num)"]["GET"] = "admin/portfolios/show_edit_form/$1";
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
