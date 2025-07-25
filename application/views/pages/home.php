@@ -52,41 +52,21 @@
 			</div>
 			<div class="content-container">
 
-				<!-- Service 1 -->
-				<div class="card h-100 text-center border-0 shadow-sm">
-					<div class="card-body p-4">
-						<i class="fas fa-code service-icon"></i>
-						<h5 class="card-title text-primary">Web Development</h5>
-						<p class="card-text">
-							Pengembangan website modern dan responsif menggunakan teknologi terkini
-							untuk memenuhi kebutuhan bisnis Anda.
-						</p>
-					</div>
-				</div>
+				<?php foreach ($services as $service): ?>
 
-				<!-- Service 2 -->
-				<div class="card h-100 text-center border-0 shadow-sm">
-					<div class="card-body p-4">
-						<i class="fas fa-mobile-alt service-icon"></i>
-						<h5 class="card-title text-primary">Mobile App Development</h5>
-						<p class="card-text">
-							Pembuatan aplikasi mobile yang user-friendly dan berkualitas tinggi
-							untuk platform Android dan iOS.
-						</p>
+					<div class="card h-100 text-center border-0 shadow-sm">
+						<div class="card-body p-4">
+							<i class="<?= $service->icon_class ?> service-icon"></i>
+							<h5 class="card-title text-primary">
+								<?= $service->title ?>
+							</h5>
+							<p class="card-text">
+								<?= $service->description ?>
+							</p>
+						</div>
 					</div>
-				</div>
 
-				<!-- Service 3 -->
-				<div class="card h-100 text-center border-0 shadow-sm">
-					<div class="card-body p-4">
-						<i class="fas fa-cogs service-icon"></i>
-						<h5 class="card-title text-primary">System Integration</h5>
-						<p class="card-text">
-							Integrasi sistem dan otomatisasi proses bisnis untuk meningkatkan
-							efisiensi operasional perusahaan.
-						</p>
-					</div>
-				</div>
+				<?php endforeach ?>
 
 			</div>
 		</div>
@@ -100,44 +80,25 @@
 				<h3 class="h4">Proyek digital yang telah kami bangun untuk klien kami</h3>
 			</div>
 			<div class="content-container">
-				<!-- Portfolio 1 -->
-				<div class="card h-100 shadow-sm">
-					<img src="/placeholder.svg?height=200&width=400" alt="E-Commerce Platform" class="portfolio-img">
-					<div class="card-body">
-						<h5 class="card-title text-primary">E-Commerce Platform</h5>
-						<h6 class="card-subtitle mb-2 text-info">PT. Digital Commerce</h6>
-						<p class="card-text">
-							Platform e-commerce lengkap dengan sistem pembayaran, manajemen inventory,
-							dan dashboard analytics untuk meningkatkan penjualan online.
-						</p>
-					</div>
-				</div>
 
-				<!-- Portfolio 2 -->
-				<div class="card h-100 shadow-sm">
-					<img src="/placeholder.svg?height=200&width=400" alt="Hospital Management System" class="portfolio-img">
-					<div class="card-body">
-						<h5 class="card-title text-primary">Hospital Management System</h5>
-						<h6 class="card-subtitle mb-2 text-info">RS. Sehat Sentosa</h6>
-						<p class="card-text">
-							Sistem manajemen rumah sakit terintegrasi untuk pendaftaran pasien,
-							rekam medis, dan manajemen jadwal dokter.
-						</p>
-					</div>
-				</div>
+				<?php foreach ($portfolios as $portfolio): ?>
 
-				<!-- Portfolio 3 -->
-				<div class="card h-100 shadow-sm">
-					<img src="/placeholder.svg?height=200&width=400" alt="Learning Management System" class="portfolio-img">
-					<div class="card-body">
-						<h5 class="card-title text-primary">Learning Management System</h5>
-						<h6 class="card-subtitle mb-2 text-info">Universitas Teknologi</h6>
-						<p class="card-text">
-							Platform pembelajaran online dengan fitur video conference,
-							assignment submission, dan progress tracking untuk mahasiswa.
-						</p>
+					<div class="card h-100 shadow-sm">
+						<img src="<?= $portfolio->image_url ?>" alt="E-Commerce Platform" class="portfolio-img">
+						<div class="card-body">
+							<h5 class="card-title text-primary">
+								<?= $portfolio->title ?>
+							</h5>
+							<h6 class="card-subtitle mb-2 text-info">
+								<?= $portfolio->client_name ?>
+							</h6>
+							<p class="card-text">
+								<?= $portfolio->description ?>
+							</p>
+						</div>
 					</div>
-				</div>
+
+				<?php endforeach ?>
 
 			</div>
 		</div>
@@ -149,13 +110,15 @@
 		<div class="container">
 			<div class="text-center">
 				<h2 class="text-primary fw-bold h6">ABOUT US</h2>
-				<h3 class="h4">Mengapa HyperBolt adalah partner digital terbaik Anda</h3>
+				<h3 class="h4">
+					Solusi transformasi digital terbaik untuk Anda
+				</h3>
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-lg-8">
 					<div class="text-secondary d-grid gap-2 text-center mb-5">
 						<p>
-							HyperBolt adalah tim pengembang digital yang menghadirkan solusi teknologi dengan kecepatan dan presisi. Dari startup hingga enterprise, kami membantu bisnis berkembang melalui web, mobile, dan integrasi sistem.
+							<?= $profile->description ?>
 						</p>
 					</div>
 				</div>
@@ -167,66 +130,23 @@
 			</div>
 			<div class="content-container">
 
-				<!-- Staff 1 -->
-				<div class="card h-100 text-center border-0 shadow-sm">
-					<div class="card-body p-4">
-						<h5 class="card-title text-primary">Hernando Borosi</h5>
-						<h6 class="card-subtitle mb-3 text-info">Lead Developer</h6>
-						<p class="card-text">
-							Full Stack Developer dengan pengalaman 2+ tahun dalam pengembangan
-							aplikasi web dan mobile menggunakan teknologi modern.
-						</p>
-						<div class="mt-3">
-							<a href="https://linkedin.com/in/hernandobrs" target="_blank" class="btn btn-outline-primary btn-sm me-2">
-								<i class="fab fa-linkedin"></i>
-							</a>
-							<a href="https://github.com/hrndbrs" target="_blank" class="btn btn-outline-primary btn-sm">
-								<i class="fab fa-github"></i>
-							</a>
+				<?php foreach ($staff as $member): ?>
+
+					<div class="card h-100 text-center border-0 shadow-sm">
+						<div class="card-body p-4">
+							<h5 class="card-title text-primary">
+								<?= $member->full_name ?>
+							</h5>
+							<h6 class="card-subtitle mb-3 text-info">
+								<?= $member->position ?>
+							</h6>
+							<p class="card-text">
+								<?= $member->bio ?>
+							</p>
 						</div>
 					</div>
-				</div>
 
-				<!-- Staff 2 -->
-				<div class="card h-100 text-center border-0 shadow-sm">
-					<div class="card-body p-4">
-						<h5 class="card-title text-primary">Sarah Johnson</h5>
-						<h6 class="card-subtitle mb-3 text-info">UI/UX Designer</h6>
-						<p class="card-text">
-							Designer berpengalaman dengan keahlian dalam menciptakan interface
-							yang menarik dan user experience yang optimal.
-						</p>
-						<div class="mt-3">
-							<a href="#" class="btn btn-outline-primary btn-sm me-2">
-								<i class="fab fa-linkedin"></i>
-							</a>
-							<a href="#" class="btn btn-outline-primary btn-sm">
-								<i class="fab fa-dribbble"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Staff 3 -->
-				<div class="card h-100 text-center border-0 shadow-sm">
-					<div class="card-body p-4">
-						<h5 class="card-title text-primary">Michael Chen</h5>
-						<h6 class="card-subtitle mb-3 text-info">Project Manager</h6>
-						<p class="card-text">
-							Project Manager bersertifikat dengan track record mengelola proyek
-							teknologi dari konsep hingga implementasi yang sukses.
-						</p>
-						<div class="mt-3">
-							<a href="#" class="btn btn-outline-primary btn-sm me-2">
-								<i class="fab fa-linkedin"></i>
-							</a>
-							<a href="#" class="btn btn-outline-primary btn-sm">
-								<i class="fas fa-envelope"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-
+				<?php endforeach ?>
 			</div>
 		</div>
 	</section>
