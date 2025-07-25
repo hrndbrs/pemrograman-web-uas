@@ -4,9 +4,9 @@ INSERT INTO services (title, icon_class, description) VALUES
 ('System Integration', 'fas fa-cogs', 'Integrasi sistem dan otomatisasi proses bisnis untuk meningkatkan efisiensi operasional perusahaan.');
 
 INSERT INTO portfolios (title, client_name, image_url, description) VALUES
-('E-Commerce Platform', 'PT. Digital Commerce', '/placeholder.svg?height=200&width=400', 'Platform e-commerce lengkap dengan sistem pembayaran, manajemen inventory, dan dashboard analytics untuk meningkatkan penjualan online.'),
-('Hospital Management System', 'RS. Sehat Sentosa', '/placeholder.svg?height=200&width=400', 'Sistem manajemen rumah sakit terintegrasi untuk pendaftaran pasien, rekam medis, dan manajemen jadwal dokter.'),
-('Learning Management System', 'Universitas Teknologi', '/placeholder.svg?height=200&width=400', 'Platform pembelajaran online dengan fitur video conference, assignment submission, dan progress tracking untuk mahasiswa.');
+('E-Commerce Platform', 'PT. Digital Commerce', 'https://images.unsplash.com/photo-1751076547690-09952d86c2ce?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'Platform e-commerce lengkap dengan sistem pembayaran, manajemen inventory, dan dashboard analytics untuk meningkatkan penjualan online.'),
+('Hospital Management System', 'RS. Sehat Sentosa', 'https://images.unsplash.com/photo-1751076547690-09952d86c2ce?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'Sistem manajemen rumah sakit terintegrasi untuk pendaftaran pasien, rekam medis, dan manajemen jadwal dokter.'),
+('Learning Management System', 'Universitas Teknologi', 'https://images.unsplash.com/photo-1751076547690-09952d86c2ce?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'Platform pembelajaran online dengan fitur video conference, assignment submission, dan progress tracking untuk mahasiswa.');
 
 INSERT INTO staff (full_name, position, bio) VALUES
 ('Hernando Borosi', 'Lead Developer', 'Full Stack Developer dengan pengalaman 2+ tahun dalam pengembangan aplikasi web dan mobile menggunakan teknologi modern.'),
