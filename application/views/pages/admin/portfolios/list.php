@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<div class="btn-group">
-				<a href="<?= base_url('admin/portfolios/' . $id) ?>" class="btn btn-sm btn-outline-secondary">
+				<a href="<?= base_url('admin/portfolios/' . $id) ?>" class="btn btn-sm btn-outline-info">
 					<i class="fas fa-edit"></i>
 				</a>
 				<a href="<?= base_url('admin/portfolios/delete/' . $id) ?>" class="btn btn-sm btn-outline-danger">
