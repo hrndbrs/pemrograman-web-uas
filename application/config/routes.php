@@ -57,5 +57,8 @@ $route["admin/services/(:num)"]["GET"] = "admin/services/show_edit_form/$1";
 $route["admin/portfolios/add"]["GET"] = "admin/portfolios/show_add_form";
 $route["admin/portfolios/(:num)"]["GET"] = "admin/portfolios/show_edit_form/$1";
 
+$route["admin/staff/add"]["GET"] = "admin/staff/show_add_form";
+$route["admin/staff/(:num)"]["GET"] = "admin/staff/show_edit_form/$1";
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
