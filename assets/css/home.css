@@ -1,0 +1,117 @@
+body {
+	background-color: var(--bg-darkest);
+	color: #ffffff;
+	font-family: "Plus Jakarta Sans";
+	background-image:
+		radial-gradient(circle at 10% 20%,
+			rgba(0, 200, 255, 0.03) 0%,
+			transparent 20%),
+		radial-gradient(circle at 80% 40%,
+			rgba(0, 200, 255, 0.03) 0%,
+			transparent 20%),
+		radial-gradient(circle at 40% 70%,
+			rgba(0, 200, 255, 0.03) 0%,
+			transparent 20%),
+		radial-gradient(circle at 70% 90%,
+			rgba(0, 200, 255, 0.03) 0%,
+			transparent 20%);
+	background-attachment: fixed;
+}
+
+.jumbotron {
+	background-image:
+		linear-gradient(to bottom,
+			rgba(var(--bs-dark-rgb), 0.85),
+			rgba(var(--bg-darkest-rgb), 1)),
+		url("../images/jumbotron-bg.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.navbar {
+	z-index: 1000;
+	background-color: var(--bg-darkest);
+	transition-property: opacity, background-color;
+	transition-duration: 200ms;
+	transition-timing-function: ease;
+}
+
+.navbar:hover {
+	opacity: 1;
+	background-color: var(--bg-darkest);
+}
+
+section {
+	padding: 60px 0;
+}
+
+.card {
+	background-color: var(--bg-card);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	transition: border-color 0.3s ease;
+	color: var(--bs-light);
+}
+
+.card:hover {
+	border-color: var(--bs-primary);
+}
+
+.card-text {
+	color: var(--bs-light);
+}
+
+.content-container {
+	display: grid;
+	gap: 1rem;
+}
+
+.form-control {
+	background-color: rgba(255, 255, 255, 0.01);
+	border: 1px solid rgba(0, 200, 255, 0.2);
+	color: white;
+}
+
+.form-control:focus {
+	background-color: rgba(255, 255, 255, 0.03);
+	border-color: var(--bs-primary);
+	color: white;
+	box-shadow: none;
+}
+
+.form-control::placeholder {
+	color: rgba(255, 255, 255, 0.3);
+}
+
+.profile-img {
+	width: 100%;
+	max-width: 350px;
+	aspect-ratio: 1/1;
+	border-radius: 9999px;
+	margin-inline: auto;
+}
+
+footer {
+	border-top: 1px solid rgba(var(--bs-primary-rgb), 0.1);
+}
+
+footer a.text-white:hover {
+	color: var(--bs-primary) !important;
+	text-shadow: none;
+}
+
+@media (min-width: 576px) {
+	.content-container {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 960px) {
+	.navbar {
+		background-color: transparent;
+		opacity: 0.4;
+	}
+
+	.content-container {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
