@@ -16,7 +16,7 @@ class Portfolios extends CI_Controller
 		$current_page = isset($_GET["page"]) ? validate_page_input($_GET["page"]) : 1;
 		$portfolios_data = $this->PortfoliosModel->get_list($current_page - 1);
 
-		$data["page_subtitle"] = "Manage your portfolio offerings";
+		$data["page_subtitle"] = "Manage your portfolios";
 
 		$data["portfolios"] = $portfolios_data["data"];
 		$data["page_count"] = $portfolios_data["total_pages"];
@@ -61,7 +61,7 @@ class Portfolios extends CI_Controller
 		$data = $this->validate_form(base_url("admin/portfolios/add"));
 
 		if ($this->PortfoliosModel->create($data)) {
-			$this->session->set_flashdata('success', 'portfolio created successfully.');
+			$this->session->set_flashdata('success', 'Portfolio created successfully.');
 		} else {
 			$this->session->set_flashdata('error', 'Failed to create portfolio.');
 		}
@@ -74,7 +74,7 @@ class Portfolios extends CI_Controller
 		$data = $this->validate_form(base_url("admin/portfolios/" . $id));
 
 		if ($this->PortfoliosModel->update($id, $data)) {
-			$this->session->set_flashdata('success', 'portfolio updated successfully.');
+			$this->session->set_flashdata('success', 'Portfolio updated successfully.');
 		} else {
 			$this->session->set_flashdata('error', 'Failed to update portfolio.');
 		}

@@ -30,7 +30,7 @@ $this->load->view("templates/header");
 								<i class="fas fa-info-circle"></i>
 								Profile
 							</a>
-							<a href="<? base_url('admin/staff')?>" class="accordion-nav-item <?= nav_active($segment, 'staff') ?>">
+							<a href="<?= base_url('admin/staff') ?>" class="accordion-nav-item <?= nav_active($segment, 'staff') ?>">
 								<i class="fas fa-users"></i>
 								Staff
 							</a>
