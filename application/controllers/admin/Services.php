@@ -3,6 +3,12 @@ class Services extends CI_Controller
 {
 	private $prefix = "HyperBolt CMS - ";
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->init_form();
+	}
+
 	public function index()
 	{
 		$data = $this->init_data();
@@ -52,23 +58,7 @@ class Services extends CI_Controller
 
 	public function create()
 	{
-		$this->load->library('form_validation');
-
-		$this->form_validation->set_rules('title', 'Title', 'required');
-		$this->form_validation->set_rules('icon_class', 'Icon Class', 'required');
-		$this->form_validation->set_rules('description', 'Description', 'required');
-
-		if ($this->form_validation->run() === FALSE) {
-			$this->session->set_flashdata('error', validation_errors());
-			redirect('admin/services/add');
-			return;
-		}
-
-		$data = [
-			'title' => $this->input->post('title', TRUE),
-			'icon_class' => $this->input->post('icon_class', TRUE),
-			'description' => $this->input->post('description', TRUE),
-		];
+		$data = $this->validate_form(base_url('admin/services'));
 
 		if ($this->ServicesModel->create($data)) {
 			$this->session->set_flashdata('success', 'Service created successfully.');
@@ -76,27 +66,12 @@ class Services extends CI_Controller
 			$this->session->set_flashdata('error', 'Failed to create service.');
 		}
 
-		redirect('admin/services');
+		redirect(base_url('admin/services'));
 	}
 
 	public function update(int $id)
 	{
-		$this->load->library('form_validation');
-
-		$this->form_validation->set_rules('title', 'Title', 'required');
-		$this->form_validation->set_rules('icon_class', 'Icon Class', 'required');
-		$this->form_validation->set_rules('description', 'Description', 'required');
-
-		if ($this->form_validation->run() === FALSE) {
-			$this->session->set_flashdata('error', validation_errors());
-			redirect("admin/services/$id");
-		}
-
-		$data = [
-			'title' => $this->input->post('title', TRUE),
-			'icon_class' => $this->input->post('icon_class', TRUE),
-			'description' => $this->input->post('description', TRUE),
-		];
+		$data = $this->validate_form(base_url('admin/services/' . $id));
 
 		if ($this->ServicesModel->update($id, $data)) {
 			$this->session->set_flashdata('success', 'Service updated successfully.');
@@ -104,7 +79,7 @@ class Services extends CI_Controller
 			$this->session->set_flashdata('error', 'Failed to update service.');
 		}
 
-		redirect('admin/services');
+		redirect(base_url('admin/services'));
 	}
 
 	public function delete(int $id)
@@ -135,6 +110,28 @@ class Services extends CI_Controller
 		";
 
 		return $data;
+	}
+
+	private function init_form()
+	{
+		$this->form_validation->set_rules('title', 'Title', 'required');
+		$this->form_validation->set_rules('icon_class', 'Icon Class', 'required');
+		$this->form_validation->set_rules('description', 'Description', 'required');
+	}
+
+	private function validate_form(string $redirect)
+	{
+
+		if ($this->form_validation->run() === FALSE) {
+			$this->session->set_flashdata('error', validation_errors());
+			redirect($redirect);
+		}
+
+		return [
+			'title' => $this->input->post('title', TRUE),
+			'icon_class' => $this->input->post('icon_class', TRUE),
+			'description' => $this->input->post('description', TRUE),
+		];
 	}
 
 	private function render(string $path, $data = [])

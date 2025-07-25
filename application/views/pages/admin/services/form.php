@@ -6,7 +6,7 @@ echo form_open($is_update_form ? "admin/services/update/{$service->id}" : "admin
 
 <div class="row">
 	<div class="col-md-6 mb-3">
-		<label for="serviceTitle" class="form-label">Service Title</label>
+		<label for="title" class="form-label">Service Title</label>
 		<input
 			id="title"
 			name="title"
