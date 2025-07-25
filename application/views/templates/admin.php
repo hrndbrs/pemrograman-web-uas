@@ -10,8 +10,7 @@ $this->load->view("templates/header");
 	<!-- Sidebar -->
 	<div class="sidebar">
 		<div class="sidebar-header">
-			<h4>Portfolio CMS</h4>
-			<small>Hernando Borosi</small>
+			<h1>HyperBolt CMS</h4>
 		</div>
 
 		<nav class="sidebar-nav">
@@ -49,6 +48,13 @@ $this->load->view("templates/header");
 				Portfolios
 			</a>
 		</nav>
+
+		<div class="sidebar-footer p-3">
+			<a href="<?= base_url('/') ?>" class="btn btn-outline-secondary w-100">
+				<i class="fas fa-arrow-left me-2"></i>
+				Back to Site
+			</a>
+		</div>
 	</div>
 
 	<!-- Floating Topbar -->
