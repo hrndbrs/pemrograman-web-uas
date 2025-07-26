@@ -1,62 +1,80 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const navbar = document.getElementById("navbarContainer");
-  const formMessage = document.getElementById("formMessage");
-  const contactForm = document.getElementById("contactForm");
+	const navbar = document.getElementById("navbarContainer");
+	const formMessage = document.getElementById("formMessage");
+	const contactForm = document.getElementById("contactForm");
+
+	function handleWindowResize() {
+		if (window.innerWidth < 992) {
+			navbar.style.opacity = "";
+			navbar.style.background = "";
+			document.removeEventListener("scroll", handlePageScroll);
+		} else {
+			handlePageScroll();
+			document.addEventListener("scroll", handlePageScroll);
+		}
+	}
+
+	function handlePageScroll() {
+		if (window.scrollY > 0) {
+			navbar.style.opacity = "";
+			navbar.style.background = "";
+		} else {
+			navbar.style.opacity = "1";
+			navbar.style.background = "transparent";
+		}
+	}
+
+	function handleFormSubmit(e) {
+		e.preventDefault();
+
+		formMessage.style.display = "none";
+		formMessage.innerText = "";
+
+		const data = Object.fromEntries(new FormData(e.target).entries());
+
+		if (!validateInput(data)) {
+			formMessage.innerText = "*Semua field harus terisi";
+			formMessage.style.display = "block";
+			return;
+		}
 
 
-  function handleWindowResize() {
-    if (window.innerWidth < 992) {
-      navbar.style.opacity = "";
-      navbar.style.background = "";
-      document.removeEventListener("scroll", handlePageScroll);
-    } else {
-      handlePageScroll();
-      document.addEventListener("scroll", handlePageScroll);
-    }
-  }
+		const a = document.createElement("a");
+		const { name, email, phone, subject, message } = data;
+		const body = `${message}\n\nFrom:\n${name}\n${email}\n${phone}`.replaceAll(
+			"\n",
+			"%0D%0A",
+		);
+		a.href = `mailto:hbrs@yopmail.com?subject=${subject}&body=${body}`;
+		a.click();
+		a.remove();
+	}
 
-  function handlePageScroll() {
-    if (window.scrollY > 0) {
-      navbar.style.opacity = "";
-      navbar.style.background = "";
-    } else {
-      navbar.style.opacity = "1";
-      navbar.style.background = "transparent";
-    }
-  }
+	function validateInput(input) {
+		return !Object.values(input).some((val) => val.trim() == "");
+	}
 
-  function handleFormSubmit(e) {
-    e.preventDefault();
+	handleWindowResize();
 
-    formMessage.style.display = "none";
-    formMessage.innerText = "";
+	window.addEventListener("resize", handleWindowResize);
+	contactForm.addEventListener("submit", handleFormSubmit);
 
-    const data = Object.fromEntries(new FormData(e.target).entries());
+	// Enter Animation
 
-    if (!validateInput(data)) {
-      formMessage.innerText = "*Semua field harus terisi";
-      formMessage.style.display = "block";
-      return;
-    }
+	const observer = new IntersectionObserver((entries, observer) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				const cards = entry.target.querySelectorAll(".fade");
+				cards.forEach((card, index) => {
+					card.style.animationDelay = `${index * 0.3}s`;
+					card.classList.add("animate");
+				});
+				observer.unobserve(entry.target);
+			}
+		});
+	}, { threshold: 0.1 });
 
-
-    const a = document.createElement("a");
-    const { name, email, phone, subject, message } = data;
-    const body = `${message}\n\nFrom:\n${name}\n${email}\n${phone}`.replaceAll(
-      "\n",
-      "%0D%0A",
-    );
-    a.href = `mailto:hbrs@yopmail.com?subject=${subject}&body=${body}`;
-    a.click();
-    a.remove();
-  }
-
-  function validateInput(input) {
-    return !Object.values(input).some((val) => val.trim() == "");
-  }
-
-  handleWindowResize();
-
-  window.addEventListener("resize", handleWindowResize);
-  contactForm.addEventListener("submit", handleFormSubmit);
+	document.querySelectorAll(".fade-container").forEach(section => {
+		observer.observe(section);
+	});
 });

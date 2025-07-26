@@ -30,8 +30,8 @@
 
 	<!-- Jumbotron -->
 	<div class="jumbotron px-5 mb-4 vh-100">
-		<div class="mx-auto text-white h-100" style="max-width: 55rem;">
-			<div class="h-100 text-center d-flex flex-column gap-2 align-items-center justify-content-center">
+		<div class="mx-auto fade-container text-white h-100" style="max-width: 55rem;">
+			<div class="fade h-100 text-center d-flex flex-column gap-2 align-items-center justify-content-center">
 				<h1 class="display-3 fw-bold">
 					Innovate Fast. <span class="text-primary">Build Bold.</span>
 					Grow Digital.
@@ -50,11 +50,11 @@
 				<h2 class="text-primary fw-bold h6">SERVICES</h2>
 				<h3 class="h4">Solusi digital inovatif untuk bisnis modern</h3>
 			</div>
-			<div class="content-container">
+			<div class="content-container fade-container">
 
 				<?php foreach ($services as $service): ?>
 
-					<div class="card h-100 text-center border-0 shadow-sm">
+					<div class="card fade h-100 text-center border-0 shadow-sm">
 						<div class="card-body p-4">
 							<i class="<?= $service->icon_class ?> service-icon"></i>
 							<h5 class="card-title text-primary">
@@ -79,11 +79,11 @@
 				<h2 class="text-primary fw-bold h6">PORTFOLIO</h2>
 				<h3 class="h4">Proyek digital yang telah kami bangun untuk klien kami</h3>
 			</div>
-			<div class="content-container">
+			<div class="content-container fade-container">
 
 				<?php foreach ($portfolios as $portfolio): ?>
 
-					<div class="card h-100 shadow-sm">
+					<div class="card fade h-100 shadow-sm">
 						<img src="<?= $portfolio->image_url ?>" alt="E-Commerce Platform" class="portfolio-img">
 						<div class="card-body">
 							<h5 class="card-title text-primary">
@@ -128,11 +128,11 @@
 			<div class="text-center mb-4">
 				<h3 class="h4">Tim di balik HyperBolt</h3>
 			</div>
-			<div class="content-container">
+			<div class="content-container fade-container">
 
 				<?php foreach ($staff as $member): ?>
 
-					<div class="card h-100 text-center border-0 shadow-sm">
+					<div class="card fade h-100 text-center border-0 shadow-sm">
 						<div class="card-body p-4">
 							<h5 class="card-title text-primary">
 								<?= $member->full_name ?>
